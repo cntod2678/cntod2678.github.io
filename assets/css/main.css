@@ -2458,7 +2458,7 @@
 
 		.image.main {
 			display: block;
-			margin: 4rem 0;
+            margin: 0 auto 4rem auto;
 			width: 100%;
 		}
 
@@ -2493,21 +2493,20 @@
 			transition: transform 0.2s ease-out;
 		}
 
+        a.image.main:hover img {
+            content: url("../../images/ends_002.png");
+        }
+
 		a.image:hover img {
+/*
             -moz-transform: scale(1.05);
 			-webkit-transform: scale(1.05);
 			-ms-transform: scale(1.05);
-			transform: scale(1.05);
-		}
-        
-        a.image.main:hover img {
-            display: inline-block;  
-            content: url("../../images/ENDS.002.png");
-            border: 0;
-			margin: 4rem 0;
-			width: 100%;
+            transform: scale(1.05);
+*/
         }
         
+    
 /* List */
 
 	ol {
