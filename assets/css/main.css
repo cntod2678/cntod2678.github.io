@@ -1672,7 +1672,7 @@
 	}
 
 	body, input, select, textarea {
-		font-family: "Merriweather", Georgia, serif;
+		font-family: "Merriweather", Helvetica, Georgia, serif;
 		font-weight: 300;
 		font-size: 1rem;
 		line-height: 2.375;
@@ -1721,7 +1721,7 @@
 
 	h1 {
 		font-size: 4rem;
-		line-height: 1.1;
+		line-height: 1.5;
 		margin: 0 0 2rem 0;
 	}
 
@@ -2149,7 +2149,7 @@
 
 	label {
 		display: block;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: Helvetica, "Source Sans Pro", sans-serif;
 		font-weight: 900;
 		line-height: 1.5;
 		letter-spacing: 0.075em;
@@ -2410,6 +2410,13 @@
 			display: none;
 		}
 
+/* Video */
+    .video {
+        display: block; 
+        position: relative;
+        margin: 0 auto 0 auto;
+    }
+    
 /* Image */
 
 	.image {
@@ -2427,7 +2434,7 @@
 		}
 
 			.image.left img, .image.right img {
-				width: 100%;
+				width: 90%;
 			}
 
 		.image.left {
@@ -2448,13 +2455,19 @@
 			width: 80%;
 		}
 
-			.image.fit:first-child {
-				margin-top: 0;
-			}
+        .image.half img {
+            float: right;
+            margin: 2rem auto 0 20rem;
+            max-width: 20%;
+        }
 
-			.image.fit img {
-				width: 100%;
-			}
+        .image.fit:first-child {
+            margin-top: 0;
+        }
+
+        .image.fit img {
+            width: 100%;
+        }
 
 		.image.main {
 			display: block;
@@ -2494,18 +2507,23 @@
 		}
 
         a.image.main:hover img {
+            transition: transform 0.2s ease-out;
             content: url("../../images/ends_002.png");
         }
 
-		a.image:hover img {
-/*
+		a.image.fit:hover img {
             -moz-transform: scale(1.05);
 			-webkit-transform: scale(1.05);
 			-ms-transform: scale(1.05);
             transform: scale(1.05);
-*/
         }
         
+		a.image.left:hover img {
+            -moz-transform: scale(1.05);
+			-webkit-transform: scale(1.05);
+			-ms-transform: scale(1.05);
+            transform: scale(1.05);
+        }
     
 /* List */
 
@@ -3595,19 +3613,30 @@
 			padding: 8rem 8rem 6rem 8rem ;
 		}
 
+        #main > .demo {
+            padding: 8rem 8rem 6rem 8rem ;
+        }
 			#main > .post header.major > .date {
 				margin-top: -2rem;
 			}
 
 			#main > .post header.major > h1, #main > .post header.major h2 {
 				font-size: 4rem;
-				line-height: 1.1;
+				line-height: 1.4;
 				margin: 0 0 2rem 0;
 			}
 
 			#main > .post.featured {
 				text-align: center;
 			}
+
+            #main > .post.featured.download {
+                background-image: url("../../images/category_mockup.png");
+                background-size: 67%;
+                text-decoration-color: floralwhite;
+                color: aliceblue;
+                border:none;
+            }      
 
 			@media screen and (max-width: 1280px) {
 
