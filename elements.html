@@ -186,16 +186,22 @@
                                                     </p>
                                                 </li>
 												<li style="color: forestgreen"><h3 style="color: forestgreen">해결</h3>
-                                                     <p style="font-family: Helvetica; color: dimgrey;" >1-1. 처음 생각했던 것은 Description String에 대해 빈칸을 Token으로, 나누어주고 각기 클릭 이벤트가 적용된 동적 뷰를 생성해 주는 것이었다.<br>1-2. 다시 생각해보았을 때 너무 비효율적인 방법같아 고민하다가 SNS에서 자주 사용하는 해시태그에 대한 생각이 났다.<br>
-                                                    <img src="images/text_trouble.png" style="width: 100%;">
-                                                         
-                                                         MovementMethod
-                                                    
+                                                     <p style="font-family: Helvetica; color: dimgrey;" >1-1. 처음 생각했던 것은 Description String에 대해 빈칸을 Token으로, 나누어주고 각기 클릭 이벤트가 적용된 동적 뷰를 생성해 주는 것이었다.<br>1-2. 다시 생각해보았을 때 너무 비효율적인 방법같아 고민하다가 SNS에서 자주 사용하는 해시태그에 대한 생각이 났다.<br><br>
+                                                    <img src="images/text_trouble.png" style="width: 100%;"/>
                                                     </p>
+                                                     <pre><code>textView.setMovementMethod(LinkMovementMethod.getInstance());</code></pre>
+                                                    <p style="font-family: Helvetica; color: dimgrey;">구현에 대해서 검색하던 중 TextView의 key event에 대해 처리해 주는 method가 있었고 이를 이용해서 Description의 단어들 각각에 대한 해석을 보여줄 수 있었다. <br><br>
+                                                    2-1. GirdView에서 column 값을 3으로 고정하고 삭제 되었을 때 visibility를 gone으로 주었다.<br>
+                                                    >> 원하던 방법은 아니었지만, 기능은 구현되었다.<br>
+                                                    2-2. Constraint의 Child View 에 대해서 각각을 constraint 로 연결하고 체인을 만들고 넓이를 계산해서 다음줄로 넘기는 시도를 했었다. <br>
+                                                    2-3. Custom View layout을 만드는 시도를 했었다.<br>
+                                                    >> Custom ViewGroup을 만들면서 Flex Layout 이라는 오픈소스 라이브러리를 찾았다. 추가와 삭제를 유연하게 적용시킬 수 있었다.
+                                                    </p>
+                                                         
                                                 </li>
 
-                                                <li style="color: darkslateblue "><h3 style="color: darkslateblue">Review</h3>
-                                                
+                                                <li style="color: darkslateblue "><h3 style="color: darkslateblue">느낀점</h3>
+                                                    <p style="font-family: Helvetica; color: dimgrey;">검색 또한 능력이다. 검색을 잘하려면 어느정도의 기본 지식이 필요하고 그것은 Documents에 잘 나와있는 것 같다. 그리고 무분별한 오픈소스 라이브러리에 사용은 지양해야 하지만, 필요한 곳에 적절히 사용하다보면 개발 효율을 크게 증가시켜준다.</p>
                                                 </li>
 											</ul>
                                     </blockquote>
