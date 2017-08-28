@@ -1762,7 +1762,6 @@
 
 	blockquote {
 		border-left: solid 4px;
-		font-style: italic;
 		margin: 0 0 2rem 0;
 		padding: 0.5rem 0 0.5rem 2rem;
 	}
@@ -2448,6 +2447,14 @@
 			margin: 0 0 2rem 2rem;
 			top: 0.75rem;
 		}
+
+image.right.realm {
+    	float: right;
+			margin: 0 0 2rem 2rem;
+			top: 0.75rem;
+  height: 50%;
+    width: 50%;
+}
 
 		.image.fit {
 			display: block;
@@ -3474,6 +3481,10 @@
 			box-shadow: inset 0 0 0 2px #18bfef;
 		}
 
+        #nav ul.icons.alt li {
+            color:
+        }
+    
 		#nav input, #nav select, #nav textarea {
 			color: #ffffff;
 		}
