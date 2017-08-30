@@ -64,33 +64,76 @@
 
 								<!-- Image -->
 									<h2>FINAL Project - ENDS</h2><br>
-									<span class="image fit"><img src="images/ends_001.png" alt="" /></span><br>
+									<span class="image fit"><img src="images/ends_001.png" alt="" /></span>
                                     <hr>
-                                
-<!--
-                                 Blockquote 
-									<h2>TECHNIQUE</h2>
-									   <blockquote><div class="row 50% uniform">
-											<div class="4u"><h2></h2><p></p></div>
-											<div class="4u"><h2>ccc</h2></div>
-                                            <div class="4u$"><h2>abc</h2></div>
-										</div></blockquote>
+
+                                <!-- Environment -->
+									<h2>Environment & Libraries</h2>
+                                    <br>
+									<div class="box alt">
+										<div class="row 50% uniform">
+											<div class="4u"><span class="image fit small"><img src="images/android.jpg" alt="" /></span></div>
+											<div class="4u"><div class="image fit small"><img src="images/node.png" alt="" /></div></div>
+											<div class="4u$"><span class="image fit small"><img src="images/mysql.png" alt="" /></span></div>
+											<!-- Break -->
+											<div class="4u"><span class="image fit small"><img src="images/realm.jpg" alt="" /></span></div>
+											<div class="4u"><span class="image fit small"><img src="images/glide.png" alt="" /></span></div>
+											<div class="4u$"><span class="image fit"><img src="images/retrofit.jpg" alt="" /></span></div>
+										</div>
+									</div>
+                                    <hr/>
+                
+								<!-- Box -->
+									<blockquote>
+                                        <h2>#Trouble 01. 설계없는 카피</h2>
+											<ul class="alt">
+                                                <li style="color : crimson;"><h3 style="color : crimson;">문제점</h3>
+                                                    <p style="font-family: Helvetica; color: dimgrey;" >부스트캠프의 4주차 과제에서 구현하고자 하는 Pagination에 대한 디자인패턴이 적용된 샘플 코드를 보았고, 무작정 따라하다가 코드를 이해하지도, 제대로 적용시키지도 못하고 꼬여버리는 문제가 발생하였다. 
+                                                    </p>
+                                                </li>
+												<li style="color: forestgreen"><h3 style="color: forestgreen">해결</h3>
+                                                     <p style="font-family: Helvetica; color: dimgrey;" > 코드에 대한 이해를 높이기 위해 새로운 테스트용을 만들었고, 해당 Sample Library에서 Header에 대한 matching 부분이 내가 구현하고자 하는 부분과 다르다는 것을 알았다.<br>
+                                                     >>  프로젝트의 초반이라서 해당 부분을 엎고 다시 시작하기로 했다. 
+                                                    <br> >> 그래도 두 번째 구현이라 훨씬 진행이 빨랐고, 이전까지 적용하지 못했던 디자인패턴을 일부나마 구현해보았다. 이것은 추후 부가적인 기능을 구현함에도 적용시킬 수 있었다.    
+                                                    </p>
+                                                </li>
+
+                                                <li style="color: darkslateblue "><h3 style="color: darkslateblue">느낀점</h3>
+                                                    <p style="font-family: Helvetica; color: dimgrey;" >다행스럽게도 프로젝트의 초반이라 조금 더 여유를 갖고 한 번 더 생각해보면서 구현을 진행했던것 같다.<br> 이런 잘못된 습관은 이전에도 외부 라이브러리를 무작정 적용시켜 보는 것에서도 나타났었는데 동작에 대한 이해 없이 무작정 남의 코드를 차용하는 것은 너무 위험한 일이고 프로젝트는 이틀 정도 밀렸지만, 많은 것을 느낄 수 있었다.<br></p>
+                                                </li>
+											</ul>
+                                        
+                                        <br>
+									   <h2>#Trouble 02. 뷰에 대한 처리</h2>
+											<ul class="alt">
+                                                <li style="color : crimson;"><h3 style="color : crimson;">문제점</h3>
+                                                    <p style="font-family: Helvetica; color: dimgrey;" >1. 기사에 포함된 각기 다른 Description에 포함된 단어들에 대한 클릭 이벤트에 대한 이슈가 있었다.<br>
+                                                    2. 안드로이드에서 제공하는 ViewGroup 에서 동적으로 생성하는 뷰의 크기를 계산해서 다음 줄로 바꿔주는 ViewGroup이 존재하지 않아 원하는 화면을 구성하기 힘든 문제가 있었다.
+                                                    </p>
+                                                </li>
+												<li style="color: forestgreen"><h3 style="color: forestgreen">해결</h3>
+                                                     <p style="font-family: Helvetica; color: dimgrey;" >1-1. 처음 생각했던 것은 Description String에 대해 빈칸을 Token으로, 나누어주고 각기 클릭 이벤트가 적용된 동적 뷰를 생성해 주는 것이었다.<br>1-2. 다시 생각해보았을 때 너무 비효율적인 방법같아 고민하다가 SNS에서 자주 사용하는 해시태그에 대한 생각이 났다.<br><br>
+                                                    <img src="images/text_trouble.png" style="width: 100%;"/>
+                                                    </p>
+                                                     <pre><code>textView.setMovementMethod(LinkMovementMethod.getInstance());</code></pre>
+                                                    <p style="font-family: Helvetica; color: dimgrey;">구현에 대해서 검색하던 중 TextView의 key event에 대해 처리해 주는 method가 있었고 이를 이용해서 Description의 단어들 각각에 대한 해석을 보여줄 수 있었다. <br><br>
+                                                    2-1. GirdView에서 column 값을 3으로 고정하고 삭제 되었을 때 visibility를 gone으로 주었다.<br>
+                                                    >> 원하던 방법은 아니었지만, 기능은 구현되었다.<br>
+                                                    2-2. Constraint의 Child View 에 대해서 각각을 constraint 로 연결하고 체인을 만들고 넓이를 계산해서 다음줄로 넘기는 시도를 했었다. <br>
+                                                    2-3. Custom View layout을 만드는 시도를 했었다.<br>
+                                                    >> Custom ViewGroup을 만들면서 Flex Layout 이라는 오픈소스 라이브러리를 찾았다. 추가와 삭제를 유연하게 적용시킬 수 있었다.
+                                                    </p>
+                                                         
+                                                </li>
+
+                                                <li style="color: darkslateblue "><h3 style="color: darkslateblue">느낀점</h3>
+                                                    <p style="font-family: Helvetica; color: dimgrey;">검색 또한 능력이다. 검색을 잘하려면 어느정도의 기본 지식이 필요하고 그것은 Documents에 잘 나와있는 것 같다. 그리고 무분별한 오픈소스 라이브러리에 사용은 지양해야 하지만, 필요한 곳에 적절히 사용하다보면 개발 효율을 크게 증가시켜준다.</p>
+                                                </li>
+											</ul>
+                                    </blockquote>
 									<hr />
                                 
--->
-                                <!-- Environment -->
-									<h2>Environment</h2>
-                                    <br>
-                                    <p style="font-family: Helvetica"><span class="image left"><img src="images/android.png" alt="" /></span>ENDS 애플리케이션은 Android 운영체제를 기반으로 개발된 애플리케이션입니다. 모바일 단말에서 JAVA를 기반으로 1인 프로젝트로 애플리케이션을 제작하였습니다. 약 4주 동안의 기획, 개발기간의 가장 많은 시간을 애플리케이션 개발에 할애했습니다.</p>
-                                    <br>
-									<p style="font-family: Helvetica"><span class="image right"><img src="images/node.jpg" alt="" /></span>ENDS 서비스의 서버를 Node.js로 구축하였습니다. JavaScript를 다루어 본 경험이 거의 없는데다가 서비스의 개발을 하면서 처음으로 Node.js를 다루어보았습니다. 공부와 함께 진행한 까닭에 대략 3~4일의 시간이 소요되었으며 뉴스 API를 저장 가공해서 사용자의 요청에 따라 애플리케이션과 통신합니다.  </p>
-                                    <br>
-                                    <p style="font-family: Helvetica"><span class="image left"><img src="images/mysql.png" alt="" /></span><br>가장 친숙하고 많이 사용했던 MySQL을 서버의 저장소로 사용해 뉴스 데이터를 저장하고 사용자에게 보여줄 수 있도록 했습니다. 처음에 기획했던 유저관리에 대한 부분은 일정상, 그리고 기획의 변경상 Android 애플리케이션 내의 local DB에 저장했기 때문에 뉴스 API의 데이터를 저장하고 보내는 Middle Sever의 저장소 역할을 하도록 설계했습니다.</p><br>
-                                    <p style="font-family: Helvetica; margin: auto;"><span class="image right realm"><img src="images/realm.jpg" alt="" /></span><br><br>안드로이드의 내장형 DB로 Realm 을 선택해서 사용자가 저장한 단어 스크랩등을 관리하도록 구현했습니다. Realm은 SQLite를 기반으로 ORM을 구현했을 때보다 빠른 속도를 보여주기 때문에 다른 내장형 DB 대신에 Realm 을 선택했습니다. </p><br><br><br><br><br>
-                                    <hr />
-                                
-
-                                    <h2>사용한 라이브러리</h2>
+                                <h2>기타 사용한 라이브러리</h2>
 									<dl>
 										<dt>AwesomeSplash</dt>
 										<dd>
@@ -156,57 +199,6 @@
                                         
 									</dl>
                                     <hr />
-
-								<!-- Box -->
-									<blockquote>
-                                        <h2>#Trouble 01. 설계없는 카피</h2>
-											<ul class="alt">
-                                                <li style="color : crimson;"><h3 style="color : crimson;">문제점</h3>
-                                                    <p style="font-family: Helvetica; color: dimgrey;" >부스트캠프의 4주차 과제에서 구현하고자 하는 Pagination에 대한 디자인패턴이 적용된 샘플 코드를 보았고, 무작정 따라하다가 코드를 이해하지도, 제대로 적용시키지도 못하고 꼬여버리는 문제가 발생하였다. 
-                                                    </p>
-                                                </li>
-												<li style="color: forestgreen"><h3 style="color: forestgreen">해결</h3>
-                                                     <p style="font-family: Helvetica; color: dimgrey;" > 코드에 대한 이해를 높이기 위해 새로운 테스트용을 만들었고, 해당 Sample Library에서 Header에 대한 matching 부분이 내가 구현하고자 하는 부분과 다르다는 것을 알았다.<br>
-                                                     >>  프로젝트의 초반이라서 해당 부분을 엎고 다시 시작하기로 했다. 
-                                                    <br> >> 그래도 두 번째 구현이라 훨씬 진행이 빨랐고, 이전까지 적용하지 못했던 디자인패턴을 일부나마 구현해보았다. 이것은 추후 부가적인 기능을 구현함에도 적용시킬 수 있었다.    
-                                                    </p>
-                                                </li>
-
-                                                <li style="color: darkslateblue "><h3 style="color: darkslateblue">느낀점</h3>
-                                                    <p style="font-family: Helvetica; color: dimgrey;" >다행스럽게도 프로젝트의 초반이라 조금 더 여유를 갖고 한 번 더 생각해보면서 구현을 진행했던것 같다.<br> 이런 잘못된 습관은 이전에도 외부 라이브러리를 무작정 적용시켜 보는 것에서도 나타났었는데 동작에 대한 이해 없이 무작정 남의 코드를 차용하는 것은 너무 위험한 일이고 프로젝트는 이틀 정도 밀렸지만, 많은 것을 느낄 수 있었다.<br></p>
-                                                </li>
-											</ul>
-                                        
-                                        <br>
-									   <h2>#Trouble 02. 뷰에 대한 처리</h2>
-											<ul class="alt">
-                                                <li style="color : crimson;"><h3 style="color : crimson;">문제점</h3>
-                                                    <p style="font-family: Helvetica; color: dimgrey;" >1. 기사에 포함된 각기 다른 Description에 포함된 단어들에 대한 클릭 이벤트에 대한 이슈가 있었다.<br>
-                                                    2. 안드로이드에서 제공하는 ViewGroup 에서 동적으로 생성하는 뷰의 크기를 계산해서 다음 줄로 바꿔주는 ViewGroup이 존재하지 않아 원하는 화면을 구성하기 힘든 문제가 있었다.
-                                                    </p>
-                                                </li>
-												<li style="color: forestgreen"><h3 style="color: forestgreen">해결</h3>
-                                                     <p style="font-family: Helvetica; color: dimgrey;" >1-1. 처음 생각했던 것은 Description String에 대해 빈칸을 Token으로, 나누어주고 각기 클릭 이벤트가 적용된 동적 뷰를 생성해 주는 것이었다.<br>1-2. 다시 생각해보았을 때 너무 비효율적인 방법같아 고민하다가 SNS에서 자주 사용하는 해시태그에 대한 생각이 났다.<br><br>
-                                                    <img src="images/text_trouble.png" style="width: 100%;"/>
-                                                    </p>
-                                                     <pre><code>textView.setMovementMethod(LinkMovementMethod.getInstance());</code></pre>
-                                                    <p style="font-family: Helvetica; color: dimgrey;">구현에 대해서 검색하던 중 TextView의 key event에 대해 처리해 주는 method가 있었고 이를 이용해서 Description의 단어들 각각에 대한 해석을 보여줄 수 있었다. <br><br>
-                                                    2-1. GirdView에서 column 값을 3으로 고정하고 삭제 되었을 때 visibility를 gone으로 주었다.<br>
-                                                    >> 원하던 방법은 아니었지만, 기능은 구현되었다.<br>
-                                                    2-2. Constraint의 Child View 에 대해서 각각을 constraint 로 연결하고 체인을 만들고 넓이를 계산해서 다음줄로 넘기는 시도를 했었다. <br>
-                                                    2-3. Custom View layout을 만드는 시도를 했었다.<br>
-                                                    >> Custom ViewGroup을 만들면서 Flex Layout 이라는 오픈소스 라이브러리를 찾았다. 추가와 삭제를 유연하게 적용시킬 수 있었다.
-                                                    </p>
-                                                         
-                                                </li>
-
-                                                <li style="color: darkslateblue "><h3 style="color: darkslateblue">느낀점</h3>
-                                                    <p style="font-family: Helvetica; color: dimgrey;">검색 또한 능력이다. 검색을 잘하려면 어느정도의 기본 지식이 필요하고 그것은 Documents에 잘 나와있는 것 같다. 그리고 무분별한 오픈소스 라이브러리에 사용은 지양해야 하지만, 필요한 곳에 적절히 사용하다보면 개발 효율을 크게 증가시켜준다.</p>
-                                                </li>
-											</ul>
-                                    </blockquote>
-
-									<hr />
 
 								</section>
 

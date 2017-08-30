@@ -81,6 +81,7 @@
 
 	.row.uniform > * > :first-child {
 		margin-top: 0;
+        height:  auto;
 	}
 
 	.row.uniform > * > :last-child {
@@ -2448,18 +2449,10 @@
 			top: 0.75rem;
 		}
 
-image.right.realm {
-    	float: right;
-			margin: 0 0 2rem 2rem;
-			top: 0.75rem;
-  height: 50%;
-    width: 50%;
-}
-
 		.image.fit {
 			display: block;
 			margin: 0 auto 2.5rem auto;
-			width: 80%;
+			width: 80%; 
 		}
 
         .image.half img {
@@ -2468,9 +2461,20 @@ image.right.realm {
             max-width: 20%;
         }
 
+        .image.fit.small {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .image.fit.small  img {
+            max-width:100%; max-height:100%;
+        }
+
         .image.fit:first-child {
             margin-top: 0;
         }
+
 
         .image.fit img {
             width: 100%;
@@ -2514,8 +2518,15 @@ image.right.realm {
 		}
 
         a.image.main:hover img {
+            /*
             transition: transform 0.2s ease-out;
             content: url("../../images/ends_002.png");
+            */
+            -moz-transform: scale(1.05);
+			-webkit-transform: scale(1.05);
+			-ms-transform: scale(1.05);
+            transform: scale(1.05);
+
         }
 
 		a.image.fit:hover img {
